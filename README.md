@@ -1,4 +1,4 @@
-# Central Bank of Chile Scientific Computing Workshops
+# QuantEcon IMF Seminar on Scientific Computing
 
 ![](qe-logo-large.png)
 
