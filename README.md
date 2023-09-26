@@ -1,6 +1,7 @@
-# QuantEcon IMF Seminar on Scientific Computing
 
 ![](qe-logo-large.png)
+
+# QuantEcon IMF Seminar on Scientific Computing
 
 This is the homepage for the [QuantEcon](https://quantecon.org/)-IMF seminar on scientific
 and high performance computing to be held in Washington DC in October 2023. 
