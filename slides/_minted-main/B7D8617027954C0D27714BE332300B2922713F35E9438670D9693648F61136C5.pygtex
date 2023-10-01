@@ -1,0 +1,6 @@
+\begin{Verbatim}[commandchars=\\\{\},codes={\catcode`\$=3\catcode`\^=7\catcode`\_=8\relax}]
+\PYG{k}{PROGRAM }\PYG{n}{ONE\PYGZus{}PLUS\PYGZus{}ONE}
+\PYG{k+kt}{INTEGER}\PYG{+w}{ }\PYG{k+kd}{::}\PYG{+w}{ }\PYG{n}{X}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{l+m+mi}{1}\PYG{+w}{ }\PYG{o}{+}\PYG{+w}{ }\PYG{l+m+mi}{1}
+\PYG{k}{PRINT}\PYG{+w}{ }\PYG{o}{*}\PYG{p}{,}\PYG{+w}{ }\PYG{l+s+s1}{\PYGZsq{}1 + 1 = \PYGZsq{}}\PYG{p}{,}\PYG{+w}{ }\PYG{n}{X}
+\PYG{k}{END PROGRAM }\PYG{n}{ONE\PYGZus{}PLUS\PYGZus{}ONE}
+\end{Verbatim}

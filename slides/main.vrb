@@ -1,0 +1,15 @@
+\frametitle{Phase 3 continued: Python + Numba copy Julia}
+
+    \begin{minted}{python}
+const alpha = 4.0
+
+@numba.jit
+def quad(x0, n):
+    x = x0
+    for i in range(n-1):
+        x = alpha * x * (1 - x)
+    return x
+
+quad(0.2, 10_000_000)
+    \end{minted}
+
