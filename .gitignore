@@ -7,6 +7,16 @@ _minted*
 # C extensions
 *.so
 
+# tex
+.aux
+.fls
+.log
+.nav
+.snm
+.fdb_latexmk
+.toc
+.synctex_gz
+
 # Distribution / packaging
 .Python
 build/
