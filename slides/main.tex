@@ -12,7 +12,7 @@
   % or whatever (possibly just delete it)
 }
 
-\usefonttheme{professionalfonts}
+%\usefonttheme{professionalfonts}
 %\usepackage[english]{babel}
 % or whatever
 %\usepackage[latin1]{inputenc}
@@ -25,6 +25,15 @@
 %\usepackage{fontspec}
 %\setmonofont{CMU Typewriter Text}
 %\setmonofont{Consolas}
+
+\usepackage{fontspec} 
+\usepackage[xcharter]{newtxmath}
+\setmainfont{XCharter}
+%\usepackage{unicode-math}
+%\setmathfont{XCharter-Math.otf}
+\setmonofont{DejaVu Sans Mono}[Scale=MatchLowercase] % provides unicode characters 
+
+
 
 %%%%%%%%%%%%%%%%%%%%%% start my preamble %%%%%%%%%%%%%%%%%%%%%%
 
@@ -236,18 +245,22 @@
 \begin{frame}
     \frametitle{A (very) short history of scientific computing}
 
+
+    General purpose scientific computing environments:
+
+        \vspace{0.5em}
+        \vspace{0.5em}
     \begin{enumerate}
-        \item Fortran / C / C++ --- static type AOT compiled languages
+        \item Fortran \& C / C++ 
         \vspace{0.5em}
-        \item MATLAB --- interpreter + precompiled Fortran binaries
         \vspace{0.5em}
-        \item Python + NumPy + SciPy --- MATLAB within Python
+        \item MATLAB \& (Python + NumPy)
         \vspace{0.5em}
-        \item Julia --- rise of the JIT compilers
         \vspace{0.5em}
-        \item Python + Numba --- Julia style computing in Python
+        \item Julia \& (Python + Numba) 
         \vspace{0.5em}
-        \item Python + JAX --- Parallelization, JIT and autodiff
+        \vspace{0.5em}
+        \item Python + JAX 
     \end{enumerate}
 
 \end{frame}
@@ -256,8 +269,6 @@
 
 \begin{frame}[fragile]
     \frametitle{Fortran \& C --- static types and AOT compilers}
-
-    \Eg \brown{1 + 1} in C
 
     {\small
     \begin{minted}{c}
@@ -270,13 +281,6 @@ int main() {
     \end{minted}
     }
 
-\end{frame}
-
-
-
-\begin{frame}[fragile]
-
-    \Eg \brown{1 + 1} in Fortran
 
     {\small
     \begin{minted}{fortran}
@@ -289,6 +293,30 @@ END PROGRAM ONE_PLUS_ONE
 
 \end{frame}
 
+
+\begin{frame}
+    
+
+    Pros
+
+    \begin{itemize}
+        \item fast  --- on a single thread
+    \end{itemize}
+
+
+    \vspace{0.5em}
+
+    Cons
+
+    \begin{itemize}
+        \item tedious to write
+        \item lack of portability
+        \item hard to debug
+        \item hard to parallelize
+        \item low interativity
+    \end{itemize}
+
+\end{frame}
 
 
 
@@ -327,17 +355,16 @@ END PROGRAM ONE_PLUS_ONE
     \frametitle{Phase 3: Julia --- rise of the JIT compilers}
     
     \begin{minted}{julia}
-const alpha = 4.0
 
-function quad(x0, n)
+function quad(x0, α, n)
     x = x0
     for i in 1:(n-1)
-        x = alpha * x * (1 - x)
+        x = α * x * (1 - x)
     end
     return x
 end
 
-quad(0.2, 10_000_000)
+quad(0.2, 4.0, 10_000_000)
     \end{minted}
 
 \end{frame}
@@ -347,16 +374,16 @@ quad(0.2, 10_000_000)
     \frametitle{Phase 3 continued: Python + Numba copy Julia}
     
     \begin{minted}{python}
-const alpha = 4.0
+from numba import jit
 
-@numba.jit
-def quad(x0, n):
+@jit
+def quad(x0, α, n):
     x = x0
     for i in range(n-1):
-        x = alpha * x * (1 - x)
+        x = α * x * (1 - x)
     return x
 
-quad(0.2, 10_000_000)
+quad(0.2, 4.0, 10_000_000)
     \end{minted}
 
 \end{frame}
@@ -369,7 +396,7 @@ quad(0.2, 10_000_000)
     \begin{itemize}
         \item JIT-compilers
         \vspace{0.5em}
-        \item autodiff
+        \item automatic differentiation
         \vspace{0.5em}
         \item parallelization (CPUs / GPUs / TPUs)
     \end{itemize}
@@ -377,11 +404,11 @@ quad(0.2, 10_000_000)
     Key players
     %
     \begin{itemize}
-        \item PyTorch
-        \vspace{0.5em}
-        \item tensorflow
+        \item PyTorch 
         \vspace{0.5em}
         \item Google JAX
+        \vspace{0.5em}
+        \item Mojo?
     \end{itemize}
     
 \end{frame}
@@ -413,6 +440,30 @@ quad(0.2, 10_000_000)
 
 \end{frame}
 
+
+\begin{frame}
+
+    Stack Overflow 2023 developer survey (50 languages)
+
+    \vspace{0.5em}
+    \vspace{0.5em}
+    \vspace{0.5em}
+    
+    \begin{quote}
+        Rust is the most admired language, more than 80\% of developers that use it
+        want to use it again next year.
+
+        \vspace{0.5em}
+        \vspace{0.5em}
+        Compare this to the least admired language:
+        MATLAB. Less than 20\% of developers who used this language want to use it again next year.
+    \end{quote}
+
+
+
+    \url{https://survey.stackoverflow.co/2023/}
+
+\end{frame}
 
 
 
